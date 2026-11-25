@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>GovTech – Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin" class="admin-body">
+
+  <div class="demo-banner" data-i18n="demo_banner"></div>
+
+  <!-- ===================== ADMIN TOP BAR ===================== -->
+  <header class="navbar admin-nav">
+    <div class="container-wide nav-inner">
+      <a href="admin.html" class="brand" aria-label="GovTech admin">
+        <span class="brand-logo" data-icon="landmark" data-size="26"></span>
+        <span class="brand-text"><strong data-i18n="brand_name"></strong><small data-i18n="admin_panel"></small></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-collapse" id="navCollapse">
+        <div class="nav-actions">
+          <label class="lang-select">
+            <span data-icon="globe" data-size="16"></span>
+            <select id="langSelect" aria-label="Language">
+              <option value="en">English</option>
+              <option value="ar">العربية</option>
+            </select>
+          </label>
+          <a href="index.html" class="btn btn-ghost" data-i18n="back_to_portal"></a>
+          <button class="btn btn-primary" id="adminLogout" type="button" data-i18n="btn_logout"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="dash container-wide">
+
+      <!-- Sidebar -->
+      <aside class="dash-side">
+        <div class="dash-user">
+          <div class="avatar admin" id="adminAvatar">A</div>
+          <div><strong id="adminName"></strong><small data-i18n="role_admin"></small></div>
+        </div>
+        <nav class="dash-menu" id="adminMenu" aria-label="Admin navigation">
+          <button type="button" class="dash-link active" data-tab="overview"><span data-icon="dashboard" data-size="18"></span><span data-i18n="dash_overview"></span></button>
+          <button type="button" class="dash-link" data-tab="users"><span data-icon="users" data-size="18"></span><span data-i18n="admin_users"></span></button>
+          <button type="button" class="dash-link" data-tab="requests"><span data-icon="file" data-size="18"></span><span data-i18n="admin_requests"></span></button>
+        </nav>
+        <button type="button" class="btn btn-outline btn-block" id="resetDemo"><span data-icon="refresh" data-size="18"></span> <span data-i18n="reset_demo"></span></button>
+      </aside>
+
+      <div class="dash-main">
+
+        <!-- TAB: OVERVIEW -->
+        <section class="dash-panel" id="tab-overview">
+          <div class="welcome">
+            <div><h2 id="adminWelcome"></h2><p data-i18n="admin_welcome_sub"></p></div>
+          </div>
+
+          <div class="stats-grid five" id="adminStats"></div>
+
+          <div class="two-col">
+            <div class="card">
+              <div class="card-head"><h3 data-i18n="chart_status"></h3></div>
+              <div id="chartStatus" class="bar-chart"></div>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3 data-i18n="chart_service"></h3></div>
+              <div id="chartService" class="bar-chart"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="recent_requests"></h3><button class="link-btn" type="button" data-goto-tab="requests" data-i18n="view_all"></button></div>
+            <div class="table-wrap" id="adminRecent"></div>
+          </div>
+        </section>
+
+        <!-- TAB: USERS MANAGEMENT -->
+        <section class="dash-panel" id="tab-users" hidden>
+          <div class="panel-head"><h2 data-i18n="admin_users"></h2><p data-i18n="users_sub"></p></div>
+          <div class="toolbar">
+            <div class="search-box"><span data-icon="search" data-size="16"></span><input type="search" id="userSearch" data-i18n-placeholder="search_users"></div>
+            <select id="userNatFilter" aria-label="Nationality filter"></select>
+            <select id="userStatusFilter" aria-label="Account status filter"></select>
+          </div>
+          <div class="table-wrap" id="usersTable"></div>
+        </section>
+
+        <!-- TAB: SERVICE REQUESTS MANAGEMENT -->
+        <section class="dash-panel" id="tab-requests" hidden>
+          <div class="panel-head"><h2 data-i18n="admin_requests"></h2><p data-i18n="admin_req_sub"></p></div>
+          <div class="toolbar">
+            <div class="search-box"><span data-icon="search" data-size="16"></span><input type="search" id="reqSearch" data-i18n-placeholder="search_admin_requests"></div>
+            <select id="reqStatusFilter" aria-label="Status filter"></select>
+            <select id="reqServiceFilter" aria-label="Service filter"></select>
+          </div>
+          <div class="table-wrap" id="requestsTable"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Details modal -->
+  <div class="modal" id="modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close"><span data-icon="x" data-size="20"></span></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Confirmation dialog -->
+  <div class="modal" id="confirmModal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-confirm></div>
+    <div class="modal-dialog small" role="alertdialog" aria-modal="true">
+      <h3 id="confirmTitle"></h3>
+      <p id="confirmText" class="muted"></p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" type="button" id="confirmNo" data-i18n="btn_cancel"></button>
+        <button class="btn btn-danger" type="button" id="confirmYes" data-i18n="btn_confirm"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

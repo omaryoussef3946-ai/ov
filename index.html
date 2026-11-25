@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GovTech – a demo Smart Government Services Portal (academic front-end project).">
+  <title>GovTech – Smart Government Services Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+
+  <!-- Academic demo disclaimer (always visible) -->
+  <div class="demo-banner" data-i18n="demo_banner"></div>
+
+  <!-- ===================== NAVIGATION BAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="GovTech home">
+        <span class="brand-logo" data-icon="landmark" data-size="26"></span>
+        <span class="brand-text">
+          <strong data-i18n="brand_name"></strong>
+          <small data-i18n="brand_tag"></small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-collapse" id="navCollapse">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#home" data-route="home" data-i18n="nav_home"></a>
+          <a href="#about" data-route="about" data-i18n="nav_about"></a>
+          <a href="#services" data-route="services" data-i18n="nav_services"></a>
+          <a href="#contact" data-route="contact" data-i18n="nav_contact"></a>
+        </nav>
+
+        <div class="nav-actions">
+          <!-- Language selection (English / Arabic) -->
+          <label class="lang-select">
+            <span data-icon="globe" data-size="16"></span>
+            <select id="langSelect" aria-label="Language">
+              <option value="en">English</option>
+              <option value="ar">العربية</option>
+            </select>
+          </label>
+
+          <!-- Shown when logged out -->
+          <span class="nav-group" id="guestActions">
+            <a href="#login" class="btn btn-ghost" data-i18n="btn_login"></a>
+            <a href="#register" class="btn btn-primary" data-i18n="btn_register"></a>
+          </span>
+
+          <!-- Shown when logged in -->
+          <span class="nav-group" id="userActions" hidden>
+            <a href="#dashboard" class="btn btn-ghost" id="navDashboard" data-i18n="nav_dashboard"></a>
+            <button class="btn btn-primary" id="navLogout" type="button" data-i18n="btn_logout"></button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== VIEW: LANDING PAGE ===================== -->
+    <div class="view" id="view-home">
+
+      <!-- HOME / HERO -->
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-text reveal">
+            <span class="pill" data-i18n="hero_pill"></span>
+            <h1 data-i18n="hero_title"></h1>
+            <p data-i18n="hero_sub"></p>
+            <div class="hero-cta">
+              <a href="#services" class="btn btn-light btn-lg" data-i18n="hero_cta1"></a>
+              <a href="#register" class="btn btn-outline-light btn-lg" data-i18n="hero_cta2"></a>
+            </div>
+            <ul class="hero-stats">
+              <li><strong>8</strong><span data-i18n="stat_services"></span></li>
+              <li><strong>24/7</strong><span data-i18n="stat_access"></span></li>
+              <li><strong>100%</strong><span data-i18n="stat_paperless"></span></li>
+            </ul>
+          </div>
+
+          <!-- Decorative hero visual (pure CSS/SVG, no external images) -->
+          <div class="hero-visual reveal" aria-hidden="true">
+            <div class="float-card fc-1">
+              <span class="fc-ico ok" data-icon="check" data-size="20"></span>
+              <div><strong data-i18n="hero_card1_t"></strong><small data-i18n="hero_card1_s"></small></div>
+            </div>
+            <div class="float-card fc-2">
+              <span class="fc-ico" data-icon="clock" data-size="20"></span>
+              <div><strong data-i18n="hero_card2_t"></strong><small data-i18n="hero_card2_s"></small></div>
+            </div>
+            <div class="float-card fc-3">
+              <span class="fc-ico warn" data-icon="bell" data-size="20"></span>
+              <div><strong data-i18n="hero_card3_t"></strong><small data-i18n="hero_card3_s"></small></div>
+            </div>
+            <div class="hero-circle"><span data-icon="landmark" data-size="96"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT US -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="about_eyebrow"></span>
+            <h2 data-i18n="about_title"></h2>
+            <p data-i18n="about_sub"></p>
+          </div>
+          <div class="about-grid">
+            <div class="about-text reveal">
+              <p data-i18n="about_p1"></p>
+              <p data-i18n="about_p2"></p>
+              <div class="mv-grid">
+                <div class="mv-card"><h4 data-i18n="about_mission_t"></h4><p data-i18n="about_mission"></p></div>
+                <div class="mv-card"><h4 data-i18n="about_vision_t"></h4><p data-i18n="about_vision"></p></div>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <div class="feature reveal"><span class="ico-box" data-icon="shield"></span><h4 data-i18n="feat1_t"></h4><p data-i18n="feat1_d"></p></div>
+              <div class="feature reveal"><span class="ico-box" data-icon="bolt"></span><h4 data-i18n="feat2_t"></h4><p data-i18n="feat2_d"></p></div>
+              <div class="feature reveal"><span class="ico-box" data-icon="eye"></span><h4 data-i18n="feat3_t"></h4><p data-i18n="feat3_d"></p></div>
+              <div class="feature reveal"><span class="ico-box" data-icon="globe"></span><h4 data-i18n="feat4_t"></h4><p data-i18n="feat4_d"></p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOVERNMENT SERVICES (cards are rendered by script.js) -->
+      <section class="section section-alt" id="services">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="svc_eyebrow"></span>
+            <h2 data-i18n="svc_title"></h2>
+            <p data-i18n="svc_sub"></p>
+          </div>
+          <div class="cards-grid" id="servicesGrid"></div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="how_eyebrow"></span>
+            <h2 data-i18n="how_title"></h2>
+          </div>
+          <div class="steps-grid">
+            <div class="step reveal"><span class="step-num">1</span><h4 data-i18n="how1_t"></h4><p data-i18n="how1_d"></p></div>
+            <div class="step reveal"><span class="step-num">2</span><h4 data-i18n="how2_t"></h4><p data-i18n="how2_d"></p></div>
+            <div class="step reveal"><span class="step-num">3</span><h4 data-i18n="how3_t"></h4><p data-i18n="how3_d"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT US -->
+      <section class="section section-alt" id="contact">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="contact_eyebrow"></span>
+            <h2 data-i18n="contact_title"></h2>
+            <p data-i18n="contact_sub"></p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-info reveal">
+              <div class="info-item"><span class="ico-box" data-icon="pin"></span><div><strong data-i18n="contact_addr_t"></strong><p data-i18n="contact_addr"></p></div></div>
+              <div class="info-item"><span class="ico-box" data-icon="phone"></span><div><strong data-i18n="contact_phone_t"></strong><p dir="ltr" class="ltr-text">+20 2 0000 0000 (demo)</p></div></div>
+              <div class="info-item"><span class="ico-box" data-icon="mail"></span><div><strong data-i18n="contact_mail_t"></strong><p dir="ltr" class="ltr-text">support@govtech.example</p></div></div>
+              <div class="info-item"><span class="ico-box" data-icon="clock"></span><div><strong data-i18n="contact_hours_t"></strong><p data-i18n="contact_hours"></p></div></div>
+            </div>
+
+            <form class="card form-card reveal" id="contactForm" novalidate>
+              <h3 data-i18n="contact_form_t"></h3>
+              <div class="field" data-field="name">
+                <label for="cName" data-i18n="f_name"></label>
+                <input id="cName" name="name" type="text" autocomplete="name">
+                <small class="error"></small>
+              </div>
+              <div class="field" data-field="email">
+                <label for="cEmail" data-i18n="f_email"></label>
+                <input id="cEmail" name="email" type="email" autocomplete="email" dir="ltr">
+                <small class="error"></small>
+              </div>
+              <div class="field" data-field="subject">
+                <label for="cSubject" data-i18n="f_subject"></label>
+                <input id="cSubject" name="subject" type="text">
+                <small class="error"></small>
+              </div>
+              <div class="field" data-field="message">
+                <label for="cMessage" data-i18n="f_message"></label>
+                <textarea id="cMessage" name="message" rows="4"></textarea>
+                <small class="error"></small>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit" data-i18n="btn_send"></button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== VIEW: REGISTRATION ===================== -->
+    <div class="view" id="view-register" hidden>
+      <section class="auth-section">
+        <div class="container auth-wrap wide">
+          <form class="card auth-card" id="registerForm" novalidate>
+            <div class="auth-head">
+              <span class="ico-box lg" data-icon="user-plus"></span>
+              <h2 data-i18n="reg_title"></h2>
+              <p data-i18n="reg_sub"></p>
+            </div>
+
+            <div class="form-grid">
+              <div class="field" data-field="fullName">
+                <label for="rFullName"><span data-i18n="f_fullname"></span> <b class="req">*</b></label>
+                <input id="rFullName" name="fullName" type="text" autocomplete="name">
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="username">
+                <label for="rUsername"><span data-i18n="f_username"></span> <b class="req">*</b></label>
+                <input id="rUsername" name="username" type="text" autocomplete="username" dir="ltr">
+                <small class="hint" data-i18n="h_username"></small>
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="email">
+                <label for="rEmail"><span data-i18n="f_email"></span> <b class="req">*</b></label>
+                <input id="rEmail" name="email" type="email" autocomplete="email" dir="ltr">
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="phone">
+                <label for="rPhone"><span data-i18n="f_phone"></span> <b class="req">*</b></label>
+                <input id="rPhone" name="phone" type="tel" autocomplete="tel" dir="ltr" placeholder="+201001234567">
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="password">
+                <label for="rPassword"><span data-i18n="f_password"></span> <b class="req">*</b></label>
+                <div class="pw-wrap">
+                  <input id="rPassword" name="password" type="password" autocomplete="new-password" dir="ltr">
+                  <button type="button" class="pw-toggle" data-toggle-pw="rPassword" data-i18n-title="show_hide" aria-label="Show or hide password"><span data-icon="eye" data-size="18"></span></button>
+                </div>
+                <div class="strength" id="pwStrength" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                <small class="hint" id="pwStrengthText" data-i18n="h_password"></small>
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="confirmPassword">
+                <label for="rConfirm"><span data-i18n="f_confirm"></span> <b class="req">*</b></label>
+                <div class="pw-wrap">
+                  <input id="rConfirm" name="confirmPassword" type="password" autocomplete="new-password" dir="ltr">
+                  <button type="button" class="pw-toggle" data-toggle-pw="rConfirm" data-i18n-title="show_hide" aria-label="Show or hide password"><span data-icon="eye" data-size="18"></span></button>
+                </div>
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="gender">
+                <label><span data-i18n="f_gender"></span> <b class="req">*</b></label>
+                <div class="radio-row">
+                  <label class="radio"><input type="radio" name="gender" value="male"> <span data-i18n="gender_male"></span></label>
+                  <label class="radio"><input type="radio" name="gender" value="female"> <span data-i18n="gender_female"></span></label>
+                </div>
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="nationality">
+                <label for="rNationality"><span data-i18n="f_nationality"></span> <b class="req">*</b></label>
+                <select id="rNationality" name="nationality">
+                  <option value="" data-i18n="select_one"></option>
+                  <option value="Egyptian" data-i18n="nat_egyptian"></option>
+                  <option value="Saudi" data-i18n="nat_saudi"></option>
+                  <option value="Emirati" data-i18n="nat_emirati"></option>
+                  <option value="Kuwaiti" data-i18n="nat_kuwaiti"></option>
+                  <option value="Jordanian" data-i18n="nat_jordanian"></option>
+                  <option value="Moroccan" data-i18n="nat_moroccan"></option>
+                  <option value="Other" data-i18n="nat_other"></option>
+                </select>
+                <small class="error"></small>
+              </div>
+
+              <div class="field" data-field="nationalId">
+                <label for="rNid"><span data-i18n="f_nid"></span> <em class="opt" data-i18n="optional"></em></label>
+                <input id="rNid" name="nationalId" type="text" inputmode="numeric" dir="ltr" placeholder="00000000000000">
+                <small class="hint" data-i18n="h_nid"></small>
+                <small class="error"></small>
+              </div>
+
+              <div class="field full" data-field="address">
+                <label for="rAddress"><span data-i18n="f_address"></span> <b class="req">*</b></label>
+                <textarea id="rAddress" name="address" rows="2" autocomplete="street-address"></textarea>
+                <small class="error"></small>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-block btn-lg" type="submit" data-i18n="btn_create_account"></button>
+            <p class="auth-alt"><span data-i18n="reg_have"></span> <a href="#login" data-i18n="btn_login"></a></p>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== VIEW: LOGIN ===================== -->
+    <div class="view" id="view-login" hidden>
+      <section class="auth-section">
+        <div class="container auth-wrap split">
+          <aside class="auth-side">
+            <span class="ico-box lg light" data-icon="landmark"></span>
+            <h2 data-i18n="login_side_t"></h2>
+            <p data-i18n="login_side_d"></p>
+            <ul class="check-list">
+              <li data-i18n="login_li1"></li>
+              <li data-i18n="login_li2"></li>
+              <li data-i18n="login_li3"></li>
+            </ul>
+          </aside>
+
+          <form class="card auth-card" id="loginForm" novalidate>
+            <div class="auth-head">
+              <h2 data-i18n="login_title"></h2>
+              <p data-i18n="login_sub"></p>
+            </div>
+
+            <div class="alert alert-error" id="loginAlert" role="alert" hidden></div>
+
+            <div class="field" data-field="username">
+              <label for="lUsername" data-i18n="f_username_email"></label>
+              <input id="lUsername" name="username" type="text" autocomplete="username" dir="ltr">
+              <small class="error"></small>
+            </div>
+
+            <div class="field" data-field="password">
+              <label for="lPassword" data-i18n="f_password"></label>
+              <div class="pw-wrap">
+                <input id="lPassword" name="password" type="password" autocomplete="current-password" dir="ltr">
+                <button type="button" class="pw-toggle" data-toggle-pw="lPassword" data-i18n-title="show_hide" aria-label="Show or hide password"><span data-icon="eye" data-size="18"></span></button>
+              </div>
+              <small class="error"></small>
+            </div>
+
+            <div class="row-between">
+              <label class="check"><input type="checkbox" name="remember" id="lRemember"> <span data-i18n="remember"></span></label>
+              <a href="#" id="forgotLink" data-i18n="forgot"></a>
+            </div>
+
+            <button class="btn btn-primary btn-block btn-lg" type="submit" data-i18n="btn_login"></button>
+
+            <div class="demo-box">
+              <strong data-i18n="demo_creds"></strong>
+              <div class="demo-row">
+                <button type="button" class="chip" data-fill="citizen|Citizen@123"><span data-i18n="demo_citizen"></span>: citizen</button>
+                <button type="button" class="chip" data-fill="admin|Admin@123"><span data-i18n="demo_admin"></span>: admin</button>
+              </div>
+            </div>
+
+            <p class="auth-alt"><span data-i18n="login_new"></span> <a href="#register" data-i18n="btn_register_new"></a></p>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== VIEW: CITIZEN DASHBOARD ===================== -->
+    <div class="view" id="view-dashboard" hidden>
+      <div class="dash container-wide">
+
+        <!-- Sidebar -->
+        <aside class="dash-side">
+          <div class="dash-user">
+            <div class="avatar" id="dashAvatar">U</div>
+            <div><strong id="dashSideName"></strong><small id="dashSideUser" dir="ltr" class="ltr-text"></small></div>
+          </div>
+          <nav class="dash-menu" id="dashMenu" aria-label="Dashboard navigation">
+            <button type="button" class="dash-link active" data-tab="overview"><span data-icon="dashboard" data-size="18"></span><span data-i18n="dash_overview"></span></button>
+            <button type="button" class="dash-link" data-tab="services"><span data-icon="grid" data-size="18"></span><span data-i18n="dash_services"></span></button>
+            <button type="button" class="dash-link" data-tab="requests"><span data-icon="file" data-size="18"></span><span data-i18n="dash_requests"></span></button>
+            <button type="button" class="dash-link" data-tab="notifications"><span data-icon="bell" data-size="18"></span><span data-i18n="dash_notifications"></span><b class="badge" id="notifBadge" hidden>0</b></button>
+            <button type="button" class="dash-link" data-tab="profile"><span data-icon="user" data-size="18"></span><span data-i18n="dash_profile"></span></button>
+          </nav>
+          <button type="button" class="btn btn-outline btn-block dash-logout" id="dashLogout"><span data-icon="logout" data-size="18"></span> <span data-i18n="btn_logout"></span></button>
+        </aside>
+
+        <!-- Main area -->
+        <div class="dash-main">
+
+          <!-- TAB: OVERVIEW -->
+          <section class="dash-panel" id="tab-overview">
+            <div class="welcome">
+              <div>
+                <h2 id="welcomeTitle"></h2>
+                <p id="welcomeSub"></p>
+              </div>
+              <button class="btn btn-light" type="button" data-goto-tab="services"><span data-i18n="btn_new_request"></span></button>
+            </div>
+
+            <div class="stats-grid" id="citizenStats"></div>
+
+            <div class="two-col">
+              <div class="card">
+                <div class="card-head"><h3 data-i18n="recent_requests"></h3><button class="link-btn" type="button" data-goto-tab="requests" data-i18n="view_all"></button></div>
+                <div id="recentRequests"></div>
+              </div>
+              <div class="card">
+                <div class="card-head"><h3 data-i18n="latest_notifs"></h3><button class="link-btn" type="button" data-goto-tab="notifications" data-i18n="view_all"></button></div>
+                <div id="recentNotifs"></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h3 data-i18n="quick_services"></h3></div>
+              <div class="quick-grid" id="quickServices"></div>
+            </div>
+          </section>
+
+          <!-- TAB: SERVICES -->
+          <section class="dash-panel" id="tab-services" hidden>
+            <div class="panel-head"><h2 data-i18n="dash_services"></h2><p data-i18n="svc_panel_sub"></p></div>
+            <div class="toolbar">
+              <div class="search-box"><span data-icon="search" data-size="16"></span><input type="search" id="svcSearch" data-i18n-placeholder="search_services"></div>
+            </div>
+            <div class="cards-grid" id="dashServicesGrid"></div>
+          </section>
+
+          <!-- TAB: MY REQUESTS -->
+          <section class="dash-panel" id="tab-requests" hidden>
+            <div class="panel-head"><h2 data-i18n="dash_requests"></h2><p data-i18n="req_panel_sub"></p></div>
+
+            <!-- Track by request ID -->
+            <div class="card track-card">
+              <h3 data-i18n="track_title"></h3>
+              <form class="inline-form" id="trackForm" novalidate>
+                <input type="text" id="trackInput" dir="ltr" placeholder="REQ-1001" data-i18n-aria-label="track_title">
+                <button class="btn btn-primary" type="submit" data-i18n="btn_track"></button>
+              </form>
+              <small class="error" id="trackError"></small>
+            </div>
+
+            <div class="toolbar">
+              <div class="search-box"><span data-icon="search" data-size="16"></span><input type="search" id="reqSearch" data-i18n-placeholder="search_requests"></div>
+              <select id="reqStatusFilter" aria-label="Status filter"></select>
+            </div>
+            <div class="table-wrap" id="myRequests"></div>
+          </section>
+
+          <!-- TAB: NOTIFICATIONS -->
+          <section class="dash-panel" id="tab-notifications" hidden>
+            <div class="panel-head row">
+              <div><h2 data-i18n="dash_notifications"></h2><p data-i18n="notif_sub"></p></div>
+              <button class="btn btn-outline" type="button" id="markAllRead" data-i18n="mark_all_read"></button>
+            </div>
+            <div class="card" id="notifList"></div>
+          </section>
+
+          <!-- TAB: PROFILE -->
+          <section class="dash-panel" id="tab-profile" hidden>
+            <div class="panel-head"><h2 data-i18n="dash_profile"></h2><p data-i18n="profile_sub"></p></div>
+
+            <div class="profile-grid">
+              <div class="card profile-card">
+                <div class="avatar xl" id="profileAvatar">U</div>
+                <h3 id="profileName"></h3>
+                <p class="muted ltr-text" id="profileUser" dir="ltr"></p>
+                <dl class="detail-list" id="profileDetails"></dl>
+              </div>
+
+              <div class="stack">
+                <form class="card form-card" id="profileForm" novalidate>
+                  <h3 data-i18n="edit_profile"></h3>
+                  <div class="form-grid">
+                    <div class="field" data-field="fullName"><label for="pFullName" data-i18n="f_fullname"></label><input id="pFullName" name="fullName" type="text"><small class="error"></small></div>
+                    <div class="field" data-field="email"><label for="pEmail" data-i18n="f_email"></label><input id="pEmail" name="email" type="email" dir="ltr"><small class="error"></small></div>
+                    <div class="field" data-field="phone"><label for="pPhone" data-i18n="f_phone"></label><input id="pPhone" name="phone" type="tel" dir="ltr"><small class="error"></small></div>
+                    <div class="field" data-field="nationalId"><label for="pNid"><span data-i18n="f_nid"></span> <em class="opt" data-i18n="optional"></em></label><input id="pNid" name="nationalId" type="text" inputmode="numeric" dir="ltr"><small class="error"></small></div>
+                    <div class="field full" data-field="address"><label for="pAddress" data-i18n="f_address"></label><textarea id="pAddress" name="address" rows="2"></textarea><small class="error"></small></div>
+                  </div>
+                  <button class="btn btn-primary" type="submit" data-i18n="btn_save"></button>
+                </form>
+
+                <form class="card form-card" id="passwordForm" novalidate>
+                  <h3 data-i18n="change_password"></h3>
+                  <div class="form-grid">
+                    <div class="field full" data-field="current">
+                      <label for="pwCurrent" data-i18n="f_current_pw"></label>
+                      <input id="pwCurrent" name="current" type="password" autocomplete="current-password" dir="ltr"><small class="error"></small>
+                    </div>
+                    <div class="field" data-field="password">
+                      <label for="pwNew" data-i18n="f_new_pw"></label>
+                      <input id="pwNew" name="password" type="password" autocomplete="new-password" dir="ltr"><small class="error"></small>
+                    </div>
+                    <div class="field" data-field="confirmPassword">
+                      <label for="pwConfirm" data-i18n="f_confirm"></label>
+                      <input id="pwConfirm" name="confirmPassword" type="password" autocomplete="new-password" dir="ltr"><small class="error"></small>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" type="submit" data-i18n="btn_update_pw"></button>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand light">
+          <span class="brand-logo" data-icon="landmark" data-size="26"></span>
+          <span class="brand-text"><strong data-i18n="brand_name"></strong><small data-i18n="brand_tag"></small></span>
+        </div>
+        <p data-i18n="footer_about"></p>
+      </div>
+      <div>
+        <h5 data-i18n="footer_links"></h5>
+        <ul>
+          <li><a href="#home" data-i18n="nav_home"></a></li>
+          <li><a href="#about" data-i18n="nav_about"></a></li>
+          <li><a href="#services" data-i18n="nav_services"></a></li>
+          <li><a href="#contact" data-i18n="nav_contact"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer_account"></h5>
+        <ul>
+          <li><a href="#login" data-i18n="btn_login"></a></li>
+          <li><a href="#register" data-i18n="btn_register"></a></li>
+          <li><a href="admin.html" data-i18n="footer_admin"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="nav_contact"></h5>
+        <ul class="plain">
+          <li dir="ltr" class="ltr-text">support@govtech.example</li>
+          <li dir="ltr" class="ltr-text">+20 2 0000 0000</li>
+          <li data-i18n="contact_hours"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© <span id="year"></span> <span data-i18n="brand_name"></span>. <span data-i18n="footer_rights"></span></span>
+        <span data-i18n="footer_demo"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== MODALS ===================== -->
+  <!-- Service request / tracking / forgot-password modals share this shell -->
+  <div class="modal" id="modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close"><span data-icon="x" data-size="20"></span></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Confirmation dialog -->
+  <div class="modal" id="confirmModal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-confirm></div>
+    <div class="modal-dialog small" role="alertdialog" aria-modal="true">
+      <h3 id="confirmTitle"></h3>
+      <p id="confirmText" class="muted"></p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" type="button" id="confirmNo" data-i18n="btn_cancel"></button>
+        <button class="btn btn-danger" type="button" id="confirmYes" data-i18n="btn_confirm"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
